@@ -10,5 +10,8 @@ export default {
   plugins: [
     require("daisyui")
   ],
+  daisyui: {
+    themes: ["light", "dark", "cupcake","retro","winter","coffee","black","luxury","dracula","lemonade",'halloween'],
+  },
 }
 
