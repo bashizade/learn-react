@@ -15,7 +15,7 @@ const Main = (props) => {
       <Topbar change_menu_status={() => change_menu_status()} />
       <div className="flex mt-1">
         <Sidebar MenuIsOpen={MenuIsOpen}/>
-        <div className="w-full h-full rounded-lg mr-1 p-2">{props.childeren}</div>
+        <div className="w-full h-full rounded-lg mr-1 p-2">{props.children}</div>
       </div>
     </>
   );

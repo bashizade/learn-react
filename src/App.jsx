@@ -1,15 +1,20 @@
 import Main from "./components/layouts/dashboard/Main";
 import Index from "./pages/Index"
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Routes, Route, Outlet } from "react-router-dom";
+import Articles from "./pages/Article/Articles"
+import ArticleCreate from "./pages/Article/ArticleCreate";
 
 const App = () => {
   return (
     <>
       <Main>
-        <Router>
-          <Route path="/" element={<Index />} />
-        </Router>
+        <Routes>
+          <Route path="" element={<Index />} />
+          <Route path="articles" element={<Articles />}>
+            <Route path="create" element={<ArticleCreate />} />
+          </Route>
+        </Routes>
       </Main>
     </>
   );
