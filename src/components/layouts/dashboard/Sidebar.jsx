@@ -1,13 +1,16 @@
+import { Link } from "react-router-dom";
+import Li from "./components/Li";
+import LiThree from "./components/LiThree";
 
 const Sidebar = (props) => {
   let menu_calss = props.MenuIsOpen
-    ? "w-60 overflow-hidden h-screen bg-base-300 rounded-lg transition-all duration-500"
-    : "w-0 overflow-hidden h-screen bg-base-300 rounded-lg transition-all duration-500";
+    ? "w-60 overflow-hidden h-screen bg-base-300 rounded-lg transition-all duration-500 z-30 fixed right-1 top-20"
+    : "w-0 overflow-hidden h-screen bg-base-300 rounded-lg transition-all duration-500 z-30 fixed right-1 top-20";
   return (
     <div className={menu_calss}>
       <ul className="menu rounded-box">
-        <li>
-          <a>
+        <Link to="/">
+          <Li name="داشبرد">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -22,42 +25,24 @@ const Sidebar = (props) => {
                 d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
               />
             </svg>
-            <h1 className="text-right">داشبرد</h1>
-          </a>
-        </li>
-        <li>
-          <details>
-            <summary>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"
-                />
-              </svg>
-
-              <h1 className="text-right">نوشته ها</h1>
-            </summary>
-            <ul className="bg-base-200 p-1 rounded-lg">
-              <li>
-                <a>افزودن نوشته</a>
-              </li>
-              <li>
-                <a>لیست نوشته ها</a>
-              </li>
-              <li>
-                <a>دسته بندی ها</a>
-              </li>
-            </ul>
-          </details>
-        </li>
+          </Li>
+        </Link>
+        <LiThree name="نوشته ها" links={[(<Link to="articles"><Li name="لیست نوشته ها"></Li></Link>),(<Link to="articles/create"><Li name="افزودن نوشته"></Li></Link>)]}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"
+            />
+          </svg>
+        </LiThree>
         <li>
           <a>
             <svg

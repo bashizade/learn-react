@@ -1,7 +1,10 @@
+import Loading from "../components/Loading"
 
 const Index = () => {
   return (
-    <div>Index</div>
+    <>
+      <div>Index</div>
+    </>
   )
 }
 
