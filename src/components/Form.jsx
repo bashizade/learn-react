@@ -1,18 +1,18 @@
 export const CheckboxInput = (props) => {
     return (
-        <input type="checkbox" name={props.name} checked={props.checked} className="checkbox" />
+        <input type="checkbox" name={props.name} onChange={props.onChange} onBlur={props.onBlur} checked={props.checked} className="checkbox" />
     )
 }
 
 export const FileInput = (props) => {
     return (
-        <input type="file" name={props.name} className="file-input file-input-bordered w-full max-w-xs" />
+        <input type="file" name={props.name} onChange={props.onChange} onBlur={props.onBlur} className="file-input file-input-bordered w-full max-w-xs" />
     )
 }
 
 export const SelectInput = (props) => {
     return (
-        <select name={props.name} className="select select-bordered w-full max-w-xs">
+        <select name={props.name} onChange={props.onChange} onBlur={props.onBlur} className="select select-bordered w-full max-w-xs">
             <option value=""></option>
             {props.children}
         </select>
@@ -21,18 +21,18 @@ export const SelectInput = (props) => {
 
 export const TextInput = (props) => {
     return (
-        <input type="text" name={props.name} value={props.value} placeholder={props.placeholder} className="input input-bordered w-full max-w-xs" />
+        <input type="text" name={props.name} onChange={props.onChange} onBlur={props.onBlur} value={props.value} placeholder={props.placeholder} className="input input-bordered w-full max-w-xs" />
     )
 }
 
 export const TextareaInput = (props) => {
     return (
-        <textarea name={props.name} className="textarea textarea-bordered" placeholder={props.placeholder}>{props.value}</textarea>
+        <textarea name={props.name} onChange={props.onChange} onBlur={props.onBlur} className="textarea textarea-bordered" placeholder={props.placeholder} value={props.value} />
     )
 }
 
 export const ToggleInput = (props) => {
     return (
-        <input type="checkbox" className="toggle" checked={props.checked} />
+        <input type="checkbox" className="toggle" onChange={props.onChange} onBlur={props.onBlur} name={props.name} checked={props.checked} />
     )
 }

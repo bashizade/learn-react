@@ -1,10 +1,10 @@
 const Li = (props) => {
     return (
         <li>
-            <a>
+            <div>
                 {props.children}
                 <h1 className="text-right">{props.name}</h1>
-            </a>
+            </div>
         </li>
     );
 }

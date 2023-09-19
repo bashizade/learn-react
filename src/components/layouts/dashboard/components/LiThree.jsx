@@ -8,8 +8,8 @@ const LiThree = (props) => {
                     <h1 className="text-right">{props.name}</h1>
                 </summary>
                 <ul className="bg-base-200 p-1 rounded-lg">
-                    {props.links.map(link => (
-                        link
+                    {props.links.map((link,i) => (
+                        <span key={i}>{link}</span>
                     ))}
                 </ul>
             </details>
