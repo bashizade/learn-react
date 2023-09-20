@@ -2,6 +2,8 @@ import { useFormik } from "formik"
 import { TextInput, TextareaInput } from "../../components/Form"
 import Button from "../../components/Button"
 import { ArticleCreateSchema } from "../../validation/Shema"
+import { Api } from "../../config/Api"
+import Toastify from "../../components/Toastify"
 
 
 const ArticleCreate = () => {
@@ -11,11 +13,18 @@ const ArticleCreate = () => {
       body: ""
     },
     onSubmit: values => {
-      console.log(values)
+      Api.post('posts', values).then(res => {
+        Toastify("نوشته با موفقیت ذخیره شد","success")
+      }).catch(err => {
+        console.log('error is : ', err);
+        Toastify("خطا در ارسال اطلاعات","error")
+      })
+
+      form.resetForm()
     },
 
     validationSchema: ArticleCreateSchema,
-    
+
   })
   return (
     <div className="flex flex-col items-center justify-center pt-12">
