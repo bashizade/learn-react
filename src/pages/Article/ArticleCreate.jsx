@@ -1,6 +1,8 @@
 import { useFormik } from "formik"
 import { TextInput, TextareaInput } from "../../components/Form"
 import Button from "../../components/Button"
+import { ArticleCreateSchema } from "../../validation/Shema"
+
 
 const ArticleCreate = () => {
   const form = useFormik({
@@ -11,20 +13,9 @@ const ArticleCreate = () => {
     onSubmit: values => {
       console.log(values)
     },
-    validate: values => {
-      let errors = {};
-      if (values.title === "") {
-        errors.title = "عنوان نوشته اجباری می باشد"
-      } else if (values.title.length < 3) {
-        errors.title = "عنوان نوشته باید بیش از 3 کاراکتر باشد"
-      }
-      if (values.body === "") {
-        errors.body = "بدنه نوشته اجباری می باشد"
-      } else if (values.body.length < 3) {
-        errors.body = "بدنه نوشته باید بیش از 3 کاراکتر باشد"
-      }
-      return errors;
-    }
+
+    validationSchema: ArticleCreateSchema,
+    
   })
   return (
     <div className="flex flex-col items-center justify-center pt-12">
